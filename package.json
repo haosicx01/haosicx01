@@ -1,61 +1,35 @@
 {
-  "name": "vuejs_004_tl.lqlawyer.com",
-  "version": "0.1.0",
-  "private": true,
+  "name": "theme-vdoing-blog",
+  "version": "1.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
+    "dev:win": "set NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
+    "build:win": "set NODE_OPTIONS=--openssl-legacy-provider && node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
+    "predev": "node utils/check.js dev && vdoing",
+    "prebuild": "node utils/check.js build && vdoing",
+    "deploy": "bash deploy.sh",
+    "editFm": "node utils/editFrontmatter.js",
+    "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh",
+    "publish": "cd ./vdoing && npm publish && cd .. && yarn updateTheme",
+    "updateTheme": "yarn remove vuepress-theme-vdoing && rm -rf node_modules && yarn && yarn add vuepress-theme-vdoing -D"
   },
-  "dependencies": {
-    "bootstrap-vue": "^2.1.0",
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11",
-    "vue-jsonp": "^0.1.8",
-    "vue-meta": "^2.3.2",
-    "vue-router": "^3.1.5",
-    "zico": "^1.5.01"
-  },
+  "license": "MIT",
   "devDependencies": {
-    "@babel/polyfill": "^7.7.0",
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-plugin-router": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "babel-eslint": "^10.0.3",
-    "bootstrap": "^4.3.1",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "mutationobserver-shim": "^0.3.3",
-    "node-sass": "^4.12.0",
-    "popper.js": "^1.16.0",
-    "portal-vue": "^2.1.6",
-    "sass": "^1.19.0",
-    "sass-loader": "^8.0.2",
-    "vue-cli-plugin-bootstrap-vue": "^0.6.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "no-unused-vars": 0,
-      "no-unreachable": 0,
-      "vue/no-unused-components": 0,
-      "no-irregular-whitespace": 0
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "dayjs": "^1.9.7",
+    "inquirer": "^7.1.0",
+    "json2yaml": "^1.1.0",
+    "vuepress": "1.9.9",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
+    "vuepress-plugin-baidu-tongji": "^1.0.1",
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-plugin-demo-block": "^0.7.2",
+    "vuepress-plugin-fulltext-search": "^2.2.1",
+    "vuepress-plugin-one-click-copy": "^1.0.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-plugin-thirdparty-search": "^1.0.2",
+    "vuepress-plugin-zooming": "^1.1.7",
+    "vuepress-theme-vdoing": "^1.12.9",
+    "yamljs": "^0.3.0"
+  }
 }
