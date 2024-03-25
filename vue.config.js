@@ -3,5 +3,5 @@ module.exports = {
   css: {
     sourceMap: true,
   },
-  publicPath: "/",
+  publicPath: "/haosicx01/",
 };
