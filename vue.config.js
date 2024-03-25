@@ -1,6 +1,7 @@
 module.exports = {
-  assetsDir: 'style',
+  assetsDir: "style",
   css: {
-    sourceMap: true
-  }
-}
+    sourceMap: true,
+  },
+  publicPath: "/",
+};
